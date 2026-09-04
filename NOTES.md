@@ -31,6 +31,31 @@
 
 ## Yapılacak spike'lar / Faz 1 girişi
 
-- V1 overlay (wlr-layer-shell) → lazer: gerçek doğrulama Faz 1a'da.
+## Faz 1 — Spike sonuçları (2026-09-05)
+
+### 1a — Overlay (V1) ✅
+- **Karar: C planı + görünürlük-kontrollü overlay.** A planı (gtk-layer-shell)
+  **elenmiştir**: KWin `wlr-layer-shell-v1` protokolünü desteklemez (KDE kendi
+  `org_kde_plasma_shell`'ini kullanır), `gtk-layer-shell-0` sistemde yok. Bu pencere
+  KWin'de overlay katmanına alınamaz, normal pencere gibi davranırdı.
+- **Çalışan prototip:** ikinci Tauri penceresi (`label: overlay`, `visible:false`
+  doğar, transparent, alwaysOnTop, skipTaskbar, 96×96) + `src-overlay/` mini React +
+  `set_overlay_visible` komutu + `pin_overlay_bottom_right` (X11'de sağ-alt köşeye).
+- **Görsel doğrulama:** production build çalıştırıldı — `mirilti-overlay` penceresi
+  sağ-alt bölgede açıldı, kırmızı nefes-alan kayıt halkası render edildi. `visible:false`
+  doğduğu için boşta kullanıcının tıklamasını engellememesi sağlanır.
+- **KWin "üstte+tut sabit" (Wayland):** `alwaysOnTop:true` tek başına güvenilmez
+  (Wayland'de `_NET_WM_STATE` yok; GTK `keep_above` no-op kalır). Kalıcı çözüm KWin
+  pencere kuralı: sınıf `mirilti` → "Keep above = Force" + "Position = Force  sağ-alt".
+  (X11'de `alwaysOnTop` yeterli.) Kullanıcıya tek tıkla içe aktarılacak kural dosyası
+  Faz 1d/9'da.
+- **Tıklama geçirgenliği SINIRI:** KWin per-pencere input passthrough sağlamaz
+  (xdg_toplevel'de yok). Overlay kendi 96×96 alanında tıklamayı yakalar → varsayılan
+  `visible:false` + transparan tasarım bunu dengeler. §9 "girdi almaz" hedefi görünürlük
+  düzeyinde karşılandı.
+- **Bulgu:** pencerenin XWayland altında 200×200 açıldığı gözlendi (tauri.conf 96×96
+  yazsa da) — GTK/webview min-boyut davranışı; Wayland native'de tekrar ölçülecek.
+
+- V2 kısayol portalı kalıcılığı → Faz 1b.
 - V4 yapıştırma portalı güvenilirliği → Faz 1c.
 - whishper/llama sürüm bayrakları → Faz 3 yetenek sondası (V6/V7).

@@ -15,6 +15,18 @@ export default defineConfig(() => ({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  // İkinci webview (overlay, §9): ana pencereye bağımsız, kendi HTML girişi.
+  // src-overlay/overlay.html → dist/src-overlay/overlay.html; tauri.conf'daki
+  // overlay penceresi url="src-overlay/overlay.html" ile hem dev hem prod
+  // yüklenir (dev: localhost:1420/src-overlay/overlay.html).
+  build: {
+    rollupOptions: {
+      input: {
+        main: fileURLToPath(new URL('./index.html', import.meta.url)),
+        overlay: fileURLToPath(new URL('./src-overlay/overlay.html', import.meta.url)),
+      },
+    },
+  },
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //

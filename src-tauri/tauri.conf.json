@@ -15,6 +15,22 @@
         "title": "mirilti",
         "width": 800,
         "height": 600
+      },
+      {
+        "label": "overlay",
+        "title": "mirilti-overlay",
+        "url": "src-overlay/overlay.html",
+        "visible": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "resizable": false,
+        "width": 96,
+        "height": 96,
+        "shadow": false,
+        "skipTaskbar": true,
+        "x": 0,
+        "y": 0
       }
     ],
     "security": {

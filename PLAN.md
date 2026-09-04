@@ -613,6 +613,9 @@ durum göstergesi. OpenWhispr'daki "yanan yuvarlak"ın karşılığı.
   KDE bildirimine düşer. Ürün bu haliyle de tam olarak kullanılabilir kalır.
 
 Faz 1a hangisinin gerçek olduğunu belirler ve sonucu buraya yazar.
+**Faz 1a sonucu (2026-09-05):** A (wlr-layer-shell) KWin'de elendi; **C planı seçildi** —
+overlay, ikinci Tauri penceresi (`visible:false`, alwaysOnTop, transparent) + KWin
+pencere kuralı ile. Detaylar NOTES.md "Faz 1 — Spike sonuçları".
 
 **Tıklama geçirgenliği:** overlay varsayılan olarak **girdi almaz** (boş girdi
 bölgesi). Etkileşim gerekmiyor: durum göstergesi bir düğme değil. Hata
@@ -879,10 +882,12 @@ birim testleri olur — yanlış normalizasyon tüm ölçümü sessizce bozar.
 > prototipler ve `NOTES.md`'ye yazılmış kararlardır. Buradan çıkan kararlar
 > §0.3'teki V1–V4 satırlarını kapatır ve bu planı günceller.
 
-- [ ] **1a — Overlay (V1):** `gtk-layer-shell` ile Tauri penceresini KWin'de
-      overlay katmanına almayı dene. Çalışıyorsa: sağ-alt çapa, tıklama
-      geçirgenliği, çoklu monitör, tam ekran uygulama üstünde kalma testi.
-      Çalışmıyorsa B/C/D planlarını sırayla dene ve hangisinin seçildiğini yaz
+- [x] **1a — Overlay (V1):** `gtk-layer-shell` A planı **elendi** (KWin
+      `wlr-layer-shell-v1` desteklemez). **C planı** çalıştı: ikinci Tauri penceresi
+      (overlay) + `src-overlay/` mini React + `set_overlay_visible` + sağ-alt pin;
+      production build'de görsel olarak doğrulandı (nefes-alan kayıt halkası render
+      oldu). KWin pencere kuralı notu + tıklama-geçirgenlik sınırı NOTES'a yazıldı.
+      D planı (tepsi) yedek olarak duruyor.
 - [ ] **1b — Kısayol (V2, V3):** `ashpd` ile GlobalShortcuts oturumu; kısayol
       bağlama akışı, uygulama yeniden başlayınca kalıcılık, `Activated` /
       `Deactivated` ile push-to-talk denemesi

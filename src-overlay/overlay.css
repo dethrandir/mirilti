@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+/*
+ * Overlay penceresi transparan doğar (tauri.conf: transparent: true).
+ * HTML arka planını da temiz bırakmak şart — aksi hâlde webview beyaz zemin
+ * verir ve "görünmez/boş" tasarımı bozulur.
+ */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+/*
+ * §9 "Kayıt" durumu: nefes alan halka. Şimdilik statik gösterim; ileride
+ * canlı ses seviyesi (RMS, §6) halka çapına/boyutuna bağlanacak.
+ * Pencere visible:false doğduğu için varsayılan durumda hiçbir şey görünmez;
+ * Rust tarafı `set_overlay_visible` ile gösterecek.
+ */
+.breathing-ring {
+  --ring-color: rgb(244 63 94); /* rose-600 — kayıt */
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  border: 3px solid var(--ring-color);
+  animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(0.85);
+    opacity: 0.6;
+    box-shadow: 0 0 0 0 rgb(244 63 94 / 50%);
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+    box-shadow: 0 0 1rem 0.25rem rgb(244 63 94 / 35%);
+  }
+}
