@@ -32,6 +32,14 @@ ashpd = { version = "0.13", features = ["global_shortcuts", "remote_desktop", "s
 # (futures-util zaten ashpd/zbus'un getirdiği bir bağımlılıktır).
 futures-util = "0.3"
 
+# --- Faz 2 (§6 Ses yakalama): cihaz listesi + kayıt + yeniden örnekleme + WAV ---
+# cpal: ses giriş cihazları, toplama. PipeWire üzerinden ALSA/Pulse uyumlu.
+# rubato: 48k→16k yeniden örnekleme + kanal downmix (yüksek kalite).
+# hound: WAV başlık/veri yazma. ffmpeg yok (İlke: ses dönüşümü Rust içinde).
+cpal = "0.15"
+rubato = "0.15"
+hound = "3"
+
 [dev-dependencies]
 # Yalnızca testler için; üretim kodu Tauri'nin kendi tokio runtime'ını kullanır.
 tokio = { version = "1", features = ["macros", "rt"] }
