@@ -93,4 +93,17 @@
   canlı diyalog testi Faz 1d'de (uçtan uca, kullanıcı yanındayken) yapılacak.
 
 - V4 portal diyalog-başına-soru varsayımı → Faz 1d uçtan uca.
+
+### 1d — Uçtan uca kıvılcım ✅ (kod)
+- `toggle_dictation` Tauri command: overlay'i göster → 1s kayıt simülasyonu →
+  `output::inject::paste("mirilti uçtan uca çalışıyor")` → overlay'i her koşulda söndür.
+  `invoke_handler`'a eklendi. `cargo check/clippy/test (7+1 ignored) + pnpm build` yeşil.
+- **Canlı GUI tetiklemesi KULLANICI testi** (yönetici bilinçle yapmadı): `paste` portal
+  `Start`'ı tetikleyince KDE izin diyaloğu belirir ve paste odaktaki uygulamaya yapıştırır
+  — bu, ekranda izin diyaloğu + gerçek yapıştırma içeren adımdır. İki çıktı birlikte
+  V4 varsayımına karar verir:
+  - Diyalog her seferinde çıkıyor → §8.1'de portal'ı arkaya it, **ydotool birincil**.
+  - Diyalog kalıcılık (persist) ile ilk seferden sonra çıkmıyor → **portal birincil**.
+- Faz 1 spike seti tamam: 1a overlay (C planı), 1b kısayol (GlobalShortcuts), 1c
+  yapıştırma (portal→ydotool→X11→pano), 1d uçtan uca zincir.
 - whishper/llama sürüm bayrakları → Faz 3 yetenek sondası (V6/V7).

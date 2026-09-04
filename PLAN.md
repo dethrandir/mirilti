@@ -895,9 +895,10 @@ birim testleri olur — yanlış normalizasyon tüm ölçümü sessizce bozar.
       pano) + `output/clipboard.rs` (wl-copy/xclip). detect() bu makinede portal +
       ydotool + DISPLAY + pano buldu; wl-copy daemon-hang çözüldü. V4 "diyalog-başına
       soru" varsayımı **açık** — canlı diyalog testi 1d'de (kullanıcı yanındayken).
-- [ ] **1d — Uçtan uca kıvılcım:** sahte (hardcoded) metni gerçek bir metin
-      kutusuna yapıştıran, kısayolla tetiklenen, overlay'i yakıp söndüren
-      en küçük çalışan zincir
+- [x] **1d — Uçtan uca kıvılcım:** `toggle_dictation` command (overlay→1s→paste→söndür)
+      yazıldı, invoke_handler'a eklendi, kapılar yeşil. Canlı GUI tetiklemesi (KDE izin
+      diyaloğu + gerçek yapıştırma) kullanıcı testi — V4 diyalog-başına-soru kararını
+      verir (§8.1 zincir sırası).
 - [ ] `NOTES.md`'ye "Spike sonuçları" bölümü; `PLAN.md` §9/§10/§0.3 güncellenir
 - [ ] Commit
 
