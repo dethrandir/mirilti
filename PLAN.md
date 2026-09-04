@@ -870,7 +870,7 @@ birim testleri olur — yanlış normalizasyon tüm ölçümü sessizce bozar.
 - [ ] Referans dosyaları (`gemini_sohbet.md`, `claude_sohbet.md`,
       `ORNEK_PLAN.md`, `eski_ornek_scriptler/`) **kayboldu** — scaffolding
       sırasında `create-tauri-app --force` silindi; makinede yedek yok (§0.4)
-- [ ] Commit + **ilk push** (`git push -u origin main`); Actions'ın yeşil
+- [x] Commit + **ilk push** (`git push -u origin main`); Actions'ın yeşil
       döndüğü doğrulanır — CI'ın ilk gün çalışması sonraki 18 fazın güvencesi
 
 ## Faz 1 — Risk spike'ları (ürünü belirleyen faz)

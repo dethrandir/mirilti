@@ -21,7 +21,13 @@
 
 - git: `main` dalı, remote = `github.com/dethrandir/mirilti.git` (§0.4).
 - `.gitignore`: `_arsiv/`, `*.gguf`, `*.bin`, `history.db`, `evalset/audio/`, `*.wav`,
-  `engines/`, `models/`, `src-tauri/target/` (§0.4).
+  `src-tauri/target/`. **Ders:** `models/`/`engines/` global pattern'i `src/models` Rust
+  modülünü de ezdi → CI iki kere kırmızı. Model dosyaları XDG dizinlerinde, repoda asla
+  olmayacak; pattern kaldırıldı.
+- CI Tauri build: `cargo tauri` yerine **`pnpm tauri build --no-bundle`** (cargo-tauri
+  binary'si PATH'te yok, CLI node paketi olarak gelir).
+- **Faz 0 kapandı (2026-09-05):** iskelet + tooling + CI + ilk push, Actions **yeşil**
+  (frontend: biome+tsc+vite; rust: clippy+test+tauri build).
 
 ## Yapılacak spike'lar / Faz 1 girişi
 
