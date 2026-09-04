@@ -1,0 +1,5 @@
+# rustfmt configuration for the mirilti Rust core (Tauri v2).
+edition = "2021"
+max_width = 100
+use_small_heuristics = "Default"
+fn_params_layout = "Tall"

@@ -1,0 +1,4 @@
+# Minimal clippy configuration for mirilti (Tauri v2, edition 2021).
+# Most lints are governed by `-D warnings` at build time; this file only pins
+# a pragmatic MSRV floor used by lints such as unnecessary-lazy-evaluations.
+msrv = "1.85"
