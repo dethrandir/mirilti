@@ -99,5 +99,4 @@ jobs:
         working-directory: src-tauri
 
       - name: Tauri build (compile check)
-        run: cargo tauri build --no-bundle
-        working-directory: src-tauri
+        run: pnpm tauri build --no-bundle
