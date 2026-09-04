@@ -891,9 +891,10 @@ birim testleri olur — yanlış normalizasyon tüm ölçümü sessizce bozar.
 - [x] **1b — Kısayol (V2, V3):** `ashpd` GlobalShortcuts oturumu + `toggle-dictation`
       bind + `Activated`/`Deactivated` stream'i (`shortcut/portal.rs`). API doğrulandı;
       V2 kalıcılık/push-to-talk uçtan uca Faz 1d'de. Gerçek dikte tetikleme Faz 8.
-- [ ] **1c — Yapıştırma (V4):** `ashpd` ile RemoteDesktop kalıcı oturumu ve
-      `Ctrl+V` gönderimi. Diyalog her seferinde çıkıyor mu? Çıkıyorsa ydotool
-      yoluna geç ve gerekli izinleri belgele
+- [x] **1c — Yapıştırma (V4):** `output/inject.rs` §8.1 zinciri (portal→ydotool→X11→
+      pano) + `output/clipboard.rs` (wl-copy/xclip). detect() bu makinede portal +
+      ydotool + DISPLAY + pano buldu; wl-copy daemon-hang çözüldü. V4 "diyalog-başına
+      soru" varsayımı **açık** — canlı diyalog testi 1d'de (kullanıcı yanındayken).
 - [ ] **1d — Uçtan uca kıvılcım:** sahte (hardcoded) metni gerçek bir metin
       kutusuna yapıştıran, kısayolla tetiklenen, overlay'i yakıp söndüren
       en küçük çalışan zincir

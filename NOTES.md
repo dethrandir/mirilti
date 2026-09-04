@@ -69,5 +69,28 @@
 - **Tespit:** modül şu an üretim hattından çağrılmadığı için `#![allow(dead_code)]`
   taşıyor; Faz 8'de stream tüketiciye bağlanınca kaldırılacak.
 
-- Değişmez. V4 yapıştırma portalı güvenilirliği → Faz 1c.
+### 1c — Yapıştırma (V4) ✅
+- **Çalışan spike:** `output/inject.rs` §8.1 zinciri (portal→ydotool→X11→pano):
+  `detect()` + `paste()`, `PortalPasteBackend` (RemoteDesktop persist +
+  `NotifyKeyboardKeycode`), `ydotool_paste()` (evdev Ctrl=29,V=47), pano-yalnızca
+  fallback. `output/clipboard.rs`: `ClipboardBackend` trait + `SystemClipboard`
+  (wl-copy/xclip dış süreç).
+- **Bu makinede detect():**
+  - portal: ✅ (org.freedesktop.portal.Desktop + kde backend aktif)
+  - ydotool: ✅ `/usr/bin/ydotool`+`ydotoold` (daemon canlı PID), `/dev/uinput`
+    yazılabilir (uinput grubunda)
+  - X11: DISPLAY=:0 set (XWayland); xdotool yok → doğrudan tuş yolu iskelet
+  - pano: wl-copy/wl-paste + xclip varsa
+  → **Zincir bu makinede: portal (yeni diyalog) → ydotool → pano.** ydotool birincil
+  olmaya aday (portal Start KDE'de her seferinde diyalog sorsa V4 çürür → ydotool öne).
+- **Tuzağı çözüldü:** `wl-copy` daemon çocuk süreci pipe devralınca `wait_with_output`
+  sonsuz bloke oluyordu → `run_status()` (stdout/stderr null'a + düz `wait()`). NOT'a
+  işlendi.
+- **Güvenlik:** gerçek Ctrl+V gönderen test `#[ignore]` (manuel entegrasyon); `cargo
+  test` default'ta yapıştırma yapmaz. ashpd'ye `remote_desktop` + `screencast`
+  (remote_desktop'ın derlenmesi screencast impl'i ister).
+- V4 diyalog-başına soru varsayımı **hâlâ açık**: `connect()` kullanıcı etkileşimli;
+  canlı diyalog testi Faz 1d'de (uçtan uca, kullanıcı yanındayken) yapılacak.
+
+- V4 portal diyalog-başına-soru varsayımı → Faz 1d uçtan uca.
 - whishper/llama sürüm bayrakları → Faz 3 yetenek sondası (V6/V7).
