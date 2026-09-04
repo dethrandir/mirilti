@@ -56,6 +56,18 @@
 - **Bulgu:** pencerenin XWayland altında 200×200 açıldığı gözlendi (tauri.conf 96×96
   yazsa da) — GTK/webview min-boyut davranışı; Wayland native'de tekrar ölçülecek.
 
-- V2 kısayol portalı kalıcılığı → Faz 1b.
-- V4 yapıştırma portalı güvenilirliği → Faz 1c.
+### 1b — Kısayol (V2, V3) ✅
+- **Şimdilik doğrulandı:** `ashpd` (features `global_shortcuts`) + `futures-util`.
+  `shortcut/portal.rs`: `grab()` GlobalShortcuts oturumu + `toggle-dictation` bind;
+  `events()` `Activated`→`Deactivated` `ShortcutEvent` stream'i (timestamp dahil —
+  push-to-talk V3 için); `close()`. Sinyaller KDE'de kullanıcının kendi Kısayollar
+  arayüzünden bind edilir (§10).
+- **V2 (kalıcılık) ve V3 (push-to-talk)** tam spike'ı henüz: portal oturumu ayrı bir
+  süreçte ad hoc çalıştırılıp uygulama yeniden başlatılınca KDE'nin bağladığı tetiğin
+  korunup korunmadığı Faz 1d'de uçtan uca doğrulanacak. Modül doğru API'yi kullanıyor;
+  gerçek dikte tetikleme Faz 8'in tüketicisiyle bağlanır.
+- **Tespit:** modül şu an üretim hattından çağrılmadığı için `#![allow(dead_code)]`
+  taşıyor; Faz 8'de stream tüketiciye bağlanınca kaldırılacak.
+
+- Değişmez. V4 yapıştırma portalı güvenilirliği → Faz 1c.
 - whishper/llama sürüm bayrakları → Faz 3 yetenek sondası (V6/V7).

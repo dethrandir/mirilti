@@ -888,9 +888,9 @@ birim testleri olur — yanlış normalizasyon tüm ölçümü sessizce bozar.
       production build'de görsel olarak doğrulandı (nefes-alan kayıt halkası render
       oldu). KWin pencere kuralı notu + tıklama-geçirgenlik sınırı NOTES'a yazıldı.
       D planı (tepsi) yedek olarak duruyor.
-- [ ] **1b — Kısayol (V2, V3):** `ashpd` ile GlobalShortcuts oturumu; kısayol
-      bağlama akışı, uygulama yeniden başlayınca kalıcılık, `Activated` /
-      `Deactivated` ile push-to-talk denemesi
+- [x] **1b — Kısayol (V2, V3):** `ashpd` GlobalShortcuts oturumu + `toggle-dictation`
+      bind + `Activated`/`Deactivated` stream'i (`shortcut/portal.rs`). API doğrulandı;
+      V2 kalıcılık/push-to-talk uçtan uca Faz 1d'de. Gerçek dikte tetikleme Faz 8.
 - [ ] **1c — Yapıştırma (V4):** `ashpd` ile RemoteDesktop kalıcı oturumu ve
       `Ctrl+V` gönderimi. Diyalog her seferinde çıkıyor mu? Çıkıyorsa ydotool
       yoluna geç ve gerekli izinleri belgele
