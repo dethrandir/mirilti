@@ -1,0 +1,1 @@
+// TODO Faz 3: bilinen model kataloğu (serde + sabit liste).

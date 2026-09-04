@@ -30,7 +30,5 @@ _arsiv/
 history.db
 evalset/audio/
 *.wav
-# indirilmiş motor binary'leri
-engines/
-models/
+# indirilmiş motor binary'leri (çalışma zamanı XDG dizinlerinde, repo kökünde değil)
 src-tauri/target/

@@ -1,0 +1,1 @@
+// TODO Faz 3: model indirici (HTTP, ara/özet, ilerleme).

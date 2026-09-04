@@ -860,7 +860,7 @@ birim testleri olur — yanlış normalizasyon tüm ölçümü sessizce bozar.
 - [x] biome (lint+format), `rustfmt.toml`, `clippy.toml`, `.editorconfig`
 - [x] §3.3'teki dizin iskeleti (boş modüller + `mod.rs`'ler)
 - [x] `.gitignore`: `_arsiv/`, `*.gguf`, `*.bin`, `history.db`, `evalset/audio/`,
-      indirilmiş motor binary'leri, `node_modules`, `target`
+      `node_modules`, `target` (model/motor dosyaları XDG çalışma zamanı dizinlerinde)
 - [x] `LICENSE` (AGPL-3.0-only), `README.md` iskeleti, `NOTES.md` başlangıcı
 - [x] `git init -b main`, `git remote add origin
       https://github.com/dethrandir/mirilti.git` (§0.4)

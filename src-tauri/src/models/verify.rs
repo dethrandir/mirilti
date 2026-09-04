@@ -1,0 +1,1 @@
+// TODO Faz 3: indirilen model bütünlük/hash doğrulama.
