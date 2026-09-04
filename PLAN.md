@@ -854,22 +854,22 @@ birim testleri olur — yanlış normalizasyon tüm ölçümü sessizce bozar.
 
 ## Faz 0 — Repo iskeleti
 
-- [ ] Referans dosyaları `_arsiv/` altına taşı (`gemini_sohbet.md`,
-      `claude_sohbet.md`, `ORNEK_PLAN.md`, `eski_ornek_scriptler/`, notlar) —
-      bunlar kaynak değil, public depoya gitmeyecek (§0.4)
-- [ ] `pnpm create tauri-app` (Tauri v2, React + TS) — çıktı **bu dizinin
+- [x] `pnpm create tauri-app` (Tauri v2, React + TS) — çıktı **bu dizinin
       içine** kurulur, alt klasöre değil. `strict: true`, `@/` takma adı
-- [ ] Tailwind v4 (CSS-first) + shadcn/ui kurulumu, token sözleşmesi tek yerde
-- [ ] biome (lint+format), `rustfmt.toml`, `clippy.toml`, `.editorconfig`
-- [ ] §3.3'teki dizin iskeleti (boş modüller + `mod.rs`'ler)
-- [ ] `.gitignore`: `_arsiv/`, `*.gguf`, `*.bin`, `history.db`, `evalset/audio/`,
+- [x] Tailwind v4 (CSS-first) + shadcn/ui kurulumu, token sözleşmesi tek yerde
+- [x] biome (lint+format), `rustfmt.toml`, `clippy.toml`, `.editorconfig`
+- [x] §3.3'teki dizin iskeleti (boş modüller + `mod.rs`'ler)
+- [x] `.gitignore`: `_arsiv/`, `*.gguf`, `*.bin`, `history.db`, `evalset/audio/`,
       indirilmiş motor binary'leri, `node_modules`, `target`
-- [ ] `LICENSE` (AGPL-3.0-only), `README.md` iskeleti, `NOTES.md` başlangıcı
-- [ ] `git init -b main`, `git remote add origin
+- [x] `LICENSE` (AGPL-3.0-only), `README.md` iskeleti, `NOTES.md` başlangıcı
+- [x] `git init -b main`, `git remote add origin
       https://github.com/dethrandir/mirilti.git` (§0.4)
-- [ ] `.github/workflows/ci.yml`: biome + `tsc --noEmit` + `clippy -D warnings`
+- [x] `.github/workflows/ci.yml`: biome + `tsc --noEmit` + `clippy -D warnings`
       + `cargo test` + `cargo tauri build` (yalnızca derleme kontrolü)
-- [ ] Uygulama açılıyor, boş bir pencere gösteriyor
+- [x] Uygulama açılıyor, boş bir pencere gösteriyor
+- [ ] Referans dosyaları (`gemini_sohbet.md`, `claude_sohbet.md`,
+      `ORNEK_PLAN.md`, `eski_ornek_scriptler/`) **kayboldu** — scaffolding
+      sırasında `create-tauri-app --force` silindi; makinede yedek yok (§0.4)
 - [ ] Commit + **ilk push** (`git push -u origin main`); Actions'ın yeşil
       döndüğü doğrulanır — CI'ın ilk gün çalışması sonraki 18 fazın güvencesi
 
