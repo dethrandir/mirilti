@@ -1,0 +1,1 @@
+// TODO Faz 2: disk alanı/kapasite kontrolü.

@@ -1,0 +1,1 @@
+// TODO Faz 2: ses giriş cihazlarını listeleme/özellik tespiti (cpal).

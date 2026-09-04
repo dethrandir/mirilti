@@ -1,0 +1,1 @@
+// TODO Faz 2: mikrofon/klavye vb. izin kontrolü ve talebi.

@@ -1,0 +1,1 @@
+// TODO Faz 2: GPU tespiti (Vulkan/OpenCL, yerel model hedefleme).

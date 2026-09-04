@@ -1,0 +1,1 @@
+// TODO Faz 4: uygulama yapılandırması (serde).

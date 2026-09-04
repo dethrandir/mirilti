@@ -1,0 +1,1 @@
+// TODO Faz 1: yerel (on-device) pipeline implementasyonu.

@@ -1,0 +1,1 @@
+// TODO Faz 4: oturum/komut geçmişi depolama.

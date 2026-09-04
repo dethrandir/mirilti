@@ -1,0 +1,1 @@
+// TODO Faz 2: self-test / başlangıç sağlık kontrolü.

@@ -1,0 +1,1 @@
+// TODO Faz 1: model/görev spec tanımları (serde yapıları).

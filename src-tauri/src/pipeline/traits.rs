@@ -1,0 +1,1 @@
+// TODO Faz 1: pipeline trait'leri (tanıma/transkripsiyon contract'ları).

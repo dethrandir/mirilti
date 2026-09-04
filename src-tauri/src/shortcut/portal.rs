@@ -1,0 +1,1 @@
+// TODO Faz 1: kısayol portal backend'i (DBus/org.freedesktop.portal).

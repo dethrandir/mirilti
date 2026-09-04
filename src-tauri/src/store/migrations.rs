@@ -1,0 +1,1 @@
+// TODO Faz 4: şema migrasyonları (sqlite) — ilgili crates Faz 4'te eklenir.

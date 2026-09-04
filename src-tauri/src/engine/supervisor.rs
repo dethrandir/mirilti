@@ -1,0 +1,1 @@
+// TODO Faz 1: denetleyici süpervizör (görev yaşam döngüsü, durum makinesi).

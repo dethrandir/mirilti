@@ -1,0 +1,1 @@
+// TODO Faz 1: X11 kısayol backend'i (XGrabKey vb.).

@@ -1,0 +1,1 @@
+// TODO Faz 1: metin enjeksiyonu (yazma/tuş akışı, amaç: metni yapıştırma).

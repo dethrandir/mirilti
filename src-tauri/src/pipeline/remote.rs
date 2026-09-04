@@ -1,0 +1,1 @@
+// TODO Faz 1: uzak (API) pipeline implementasyonu ve akış yönetimi.
