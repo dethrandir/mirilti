@@ -106,4 +106,17 @@
   - Diyalog kalıcılık (persist) ile ilk seferden sonra çıkmıyor → **portal birincil**.
 - Faz 1 spike seti tamam: 1a overlay (C planı), 1b kısayol (GlobalShortcuts), 1c
   yapıştırma (portal→ydotool→X11→pano), 1d uçtan uca zincir.
+
+## Faz 2 — Ses yakalama ✅ (kod; canlı mikrofon testi kullanıcıda)
+
+- `audio/device.rs`, `recorder.rs`, `resample.rs`, `wav.rs` tamamlandı.
+- **V8 (cpal/PipeWire):** `probe_default_input_config` + `#[ignore]` donanım testleri
+  var; cpal 0.15 `Stream !Send` bulgusu — akış sürücü iş parçacığında yaşar, hazır kanal.
+- **16k mono i16 → mono:** downmix (`rubato`) + hedef 16k. **Tuzak çözüldü:** rubato
+  `FftFixedIn` flush'ında `process_partial(None,None)` sonsuz uzatıyordu (5120→85845);
+  doğrusu hedef uzunluğa sınırlı boşaltma + truncate. 4 birim test yeşil.
+- WAV `hound`, `pending/` XDG yazma + temizlik; RMS canlı yayın; sessizlik eşiği 0.01
+  (~-40 dBFS); max süre 300s.
+- Kapılar: cargo check/clippy/tüm test (24 pass, 4 donanım #[ignore]) + pnpm build yeşil.
+- **Canlı mikrofon kaydı** kullanıcı testi (gerçek cihaz; headless değil) — Faz 3'ten bağımsız.
 - whishper/llama sürüm bayrakları → Faz 3 yetenek sondası (V6/V7).

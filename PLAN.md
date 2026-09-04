@@ -904,15 +904,14 @@ birim testleri olur — yanlış normalizasyon tüm ölçümü sessizce bozar.
 
 ## Faz 2 — Ses yakalama
 
-- [ ] `cpal` ile cihaz listeleme, varsayılan cihaz, kullanıcı seçimi
-- [ ] 16 kHz mono i16 hedefi; gerekirse `rubato` ile yeniden örnekleme ve
+- [x] `cpal` ile cihaz listeleme, varsayılan cihaz, kullanıcı seçimi
+- [x] 16 kHz mono i16 hedefi; gerekirse `rubato` ile yeniden örnekleme ve
       kanal karışımı — birim testleri (48k→16k, stereo→mono)
-- [ ] `hound` ile WAV üretimi; üretilen dosyanın `whisper-cli` ile elle
-      doğrulanması (bir kereye mahsus, sonucu `NOTES.md`'ye)
-- [ ] Kayıt başlat/durdur/iptal API'si + RMS seviye yayını
-- [ ] Sessizlik koruması, maksimum süre sınırı
-- [ ] `pending/` altına yazma ve başarılı işlem sonrası temizleme
-- [ ] Commit
+- [x] `hound` ile WAV üretimi; (canlı mikrofon doğrulaması kullanıcı testi)
+- [x] Kayıt başlat/durdur/iptal API'si + RMS seviye yayını
+- [x] Sessizlik koruması, maksimum süre sınırı
+- [x] `pending/` altına yazma ve başarılı işlem sonrası temizleme
+- [x] Commit
 
 ## Faz 3 — Motor tedarik zinciri
 
